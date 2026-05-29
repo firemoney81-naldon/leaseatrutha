@@ -1,23 +1,852 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+ 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "현대 아이오닉 리스 견적 비교 서비스",
+      "description": "2026년 최신 현대자동차 아이오닉 시리즈(아이오닉5, 아이오닉6, 아이오닉9)의 합리적인 월 리스료 산출 및 특판 할인 혜택 비교 가이드.",
+      "sku": "IONIQ-LEASE-GUIDE-2026",
+      "brand": {
+        "@type": "Brand",
+        "name": "현대자동차"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "248"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://yourdomain.com/ioniq-lease-quote",
+        "priceCurrency": "KRW",
+        "price": "0",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+      
+      :root {
+        --primary-color: #0d9488; /* 차분한 민트 테일 */
+        --secondary-color: #1e3a8a; /* 이성적인 네이비 블루 */
+        --accent-color: #f59e0b; /* 부드러운 엠버 주황 */
+        --bg-color-light: #f8fafc; /* 밝은 회청색 배경 */
+        --card-bg: #ffffff;
+        --text-dark: #1e293b; /* 깊은 슬레이트 800 */
+        --text-muted: #64748b; /* 슬레이트 500 */
+        --border-color: #e2e8f0; /* 부드러운 테두리 */
+      }
+
+      body {
+        font-family: 'Noto Sans KR', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.8;
+        background-color: var(--bg-color-light);
+        color: var(--text-dark);
+        font-size: 16px;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        color: white;
+        padding: 4rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      header h1 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+      }
+
+      header p {
+        font-size: 1.15rem;
+        opacity: 0.95;
+        max-width: 800px;
+        margin: 0 auto 2rem auto;
+        font-weight: 300;
+      }
+
+      nav {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 0.75rem;
+        border-radius: 30px;
+        display: inline-block;
+        backdrop-filter: blur(5px);
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        padding: 0.25rem 0.75rem;
+      }
+
+      nav a:hover {
+        color: var(--accent-color);
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-wrapper {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        padding: 3rem;
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      h2 {
+        color: var(--secondary-color);
+        font-size: 1.9rem;
+        font-weight: 700;
+        padding-bottom: 0.75rem;
+        border-bottom: 3px solid var(--primary-color);
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
+      }
+
+      h3 {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1.25rem;
+        text-align: justify;
+        color: var(--text-dark);
+      }
+
+      strong {
+        color: var(--secondary-color);
+        font-weight: 700;
+      }
+
+      .keyword-tags {
+        margin: 2rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .keyword-tags a {
+        background-color: #f1f5f9;
+        color: var(--text-muted);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+
+      .keyword-tags a:hover {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+
+      /* 테이블 고급 스타일 */
+      .table-responsive {
+        overflow-x: auto;
+        margin: 2rem 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        border: 1px solid var(--border-color);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+
+      th, td {
+        padding: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      th {
+        background-color: var(--secondary-color);
+        color: white;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fafbfd;
+      }
+
+      tbody tr:hover {
+        background-color: #f0fdfa;
+      }
+
+      /* 가상 차트 구현 */
+      .chart-container {
+        background-color: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .chart-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .chart-bar-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .chart-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .chart-label {
+        width: 250px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+
+      .chart-bar-wrapper {
+        flex-grow: 1;
+        background-color: #e2e8f0;
+        border-radius: 8px;
+        height: 24px;
+        overflow: hidden;
+        min-width: 200px;
+      }
+
+      .chart-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        border-radius: 8px;
+        transition: width 1s ease-in-out;
+      }
+
+      .chart-value {
+        width: 120px;
+        text-align: right;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        padding-left: 10px;
+      }
+
+      /* 견적 시뮬레이터 폼 */
+      .simulator-card {
+        background-color: #f0fdfa;
+        border: 2px solid var(--primary-color);
+        border-radius: 12px;
+        padding: 2.5rem;
+        margin: 2.5rem 0;
+      }
+
+      .simulator-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-group label {
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .input-group select, .input-group input {
+        padding: 0.8rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 0.95rem;
+        background-color: white;
+        color: var(--text-dark);
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      .input-group select:focus, .input-group input:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+      }
+
+      .cta-btn {
+        display: block;
+        width: 100%;
+        max-width: 450px;
+        margin: 2rem auto 0 auto;
+        background-color: var(--accent-color);
+        color: white;
+        font-weight: 700;
+        font-size: 1.15rem;
+        padding: 1.2rem;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+      }
+
+      .cta-btn:hover {
+        background-color: #d97706;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(217, 119, 6, 0.4);
+      }
+
+      /* 아코디언 FAQ */
+      .faq-list {
+        margin: 2rem 0;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.2rem 0;
+      }
+
+      .faq-question {
+        font-weight: 700;
+        color: var(--secondary-color);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.05rem;
+        user-select: none;
+      }
+
+      .faq-question::after {
+        content: "+";
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        font-weight: 300;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.active .faq-question::after {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        margin-top: 1rem;
+        padding-left: 1rem;
+        border-left: 3px solid var(--primary-color);
+        color: var(--text-dark);
+        display: none;
+        font-size: 0.95rem;
+      }
+
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+
+      /* 외부 링크 섹션 */
+      .external-links-box {
+        background-color: #f8fafc;
+        border-radius: 8px;
+        padding: 1.5rem;
+        border-left: 4px solid var(--secondary-color);
+        margin: 2rem 0;
+      }
+
+      .external-links-box a {
+        display: inline-block;
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 500;
+        margin-right: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .external-links-box a:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2.5rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        background-color: #e2e8f0;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+      }
+
+      /* 안내 박스 */
+      .info-callout {
+        background-color: #fffbeb;
+        border-left: 4px solid var(--accent-color);
+        padding: 1.5rem;
+        border-radius: 0 8px 8px 0;
+        margin: 2rem 0;
+      }
+
+      .info-callout p {
+        margin-bottom: 0;
+        font-size: 0.95rem;
+        color: #78350f;
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 1.8rem;
+        }
+        .content-wrapper {
+          padding: 1.5rem;
+        }
+        .simulator-card {
+          padding: 1.5rem;
+        }
+        .chart-label {
+          width: 100%;
+          margin-bottom: 0.25rem;
+        }
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>현대 아이오닉 리스 견적 분석 및 비교 서비스 | 2026년 전기차 금융 비용 가이드</h1>
+        <p>복잡하고 까다로운 아이오닉 리스 비용 계산을 투명하게 비교 분석합니다. 보조금 혜택부터 월 납입금 절약 꿀팁까지 스마트한 솔루션을 제공해 드립니다.</p>
+        <nav aria-label="메인 네비게이션">
+            <ul>
+                <li><a href="#intro">리스 시장 트렌드</a></li>
+                <li><a href="#simulator">실시간 모의 견적</a></li>
+                <li><a href="#analysis">모델별 세부 분석</a></li>
+                <li><a href="#comparison">구매 방식별 비교</a></li>
+                <li><a href="#community">AI 및 검색 트렌드</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <div class="content-wrapper">
+            
+            <section id="intro">
+                <h2>아이오닉 리스 시장 트렌드 및 2026년 전기차 보조금 가이드</h2>
+                <p>친환경 자동차 보급 정책이 가속화되면서 도로 위에서 전기차를 마주하는 것이 매우 평범한 일상이 되었습니다. 특히 현대자동차의 대표적인 전동화 라인업인 아이오닉 시리즈는 독창적인 공기역학적 디자인과 독보적인 E-GMP 플랫폼 기술력을 토대로 국내외에서 두터운 마니아층을 형성하고 있습니다. 그러나 전기차 기술의 급격한 발전 속도와 이에 따른 잔존가치 하락 우려, 매년 개편되는 전기차 국고 보조금 및 지자체 지원금 제도의 불확실성 때문에 신차를 현금이나 일반 할부로 직접 구매하는 것에 부담을 느끼는 소비자가 눈에 띄게 늘고 있습니다.</p>
+                
+                <p>2026년 개편된 전기차 지원 정책에 따르면, 전체적인 국고 보조금은 가격 구간에 따라 정교하게 세분화되었습니다. 차량 시작 가격이 5,300만 원 미만일 경우 보조금을 100퍼센트 전액 지원받을 수 있는 반면, 5,300만 원 이상에서 8,500만 원 미만 구간은 50퍼센트의 비율만 차등 지원됩니다. 8,500만 원을 초과하는 프리미엄 플래그십 등급은 국가 보조금 지급 대상에서 전면 제외되므로 출고 시 금융 설계가 매우 중요해졌습니다. 특히 올해는 출고된 지 3년 이상 지난 노후 내연기관 차량을 폐차하거나 정리하고 친환경차를 선택하는 운전자에게 추가로 100만 원을 지원하는 내연차 전환지원금 제도가 새롭게 신설되면서 스마트한 예산 수립이 요구되고 있습니다.</p>
+                
+                <p>이러한 복잡한 변화 속에서 <strong>아이오닉 리스</strong>는 초기 예산 부담을 대폭 경감하고 향후 차량 처분의 유연성을 확보할 수 있는 매력적인 수단으로 각광받고 있습니다. 보증금 및 선납금 비율을 자유롭게 설계하여 개인 상황에 최적화된 맞춤 금액을 산출할 수 있으며, 만기 시 차량 인수 및 반납 중 가장 합리적인 옵션을 선택할 수 있어 전기차 캐즘 돌파를 위한 최고의 무기로 평가받고 있습니다.</p>
+                
+                <div class="keyword-tags" aria-label="아이오닉 관련 핵심 태그">
+                    <a href="#analysis">아이오닉5 리스</a>
+                    <a href="#analysis">아이오닉6 리스</a>
+                    <a href="#analysis">아이오닉9 리스</a>
+                    <a href="#analysis">아이오닉5 롱레인지</a>
+                    <a href="#analysis">아이오닉6 롱레인지</a>
+                    <a href="#analysis">아이오닉5 익스클루시브</a>
+                    <a href="#analysis">아이오닉5 프레스티지</a>
+                    <a href="#analysis">아이오닉5 이라이트</a>
+                    <a href="#analysis">아이오닉6 익스클루시브</a>
+                    <a href="#analysis">아이오닉6 프레스티지</a>
+                    <a href="#analysis">아이오닉6 이라이트</a>
+                    <a href="#analysis">아이오닉5 2WD</a>
+                    <a href="#analysis">아이오닉5 AWD</a>
+                    <a href="#analysis">아이오닉6 2WD</a>
+                    <a href="#analysis">아이오닉6 AWD</a>
+                    <a href="#analysis">아이오닉9 2WD</a>
+                    <a href="#analysis">아이오닉9 AWD</a>
+                    <a href="#analysis">아이오닉9 프레스티지</a>
+                    <a href="#analysis">아이오닉9 익스클루시브</a>
+                    <a href="#analysis">아이오닉9 캘리그래피</a>
+                    <a href="#analysis">아이오닉5N 리스</a>
+                    <a href="#analysis">아이오닉5 장기렌트</a>
+                    <a href="#analysis">아이오닉6 장기렌트</a>
+                    <a href="#analysis">아이오닉9 장기렌트</a>
+                    <a href="#analysis">아이오닉5PE</a>
+                    <a href="#analysis">아이오닉6PE</a>
+                    <a href="#analysis">아이오닉 하이브리드</a>
+                    <a href="#analysis">아이오닉 일렉트릭</a>
+                </div>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <section id="simulator">
+                <h2>아이오닉 리스 실시간 다차원 모의 견적 시뮬레이터</h2>
+                <p>본인의 라이프스타일과 예산 구조에 알맞은 가상의 견적을 직접 산출해 볼 수 있는 다기능 입력 폼입니다. 구동 방식, 계약 기간, 초기 납입금 형태 등을 상세하게 조율하여 월 예상 비용 흐름을 미리 시뮬레이션해 보세요. 체류 시간이 보장될수록 당사 리스 전문 어드바이저의 심층적인 무료 모니터링 분석 리포트를 메일 및 문자로 제공받을 수 있습니다.</p>
+                
+                <div class="simulator-card">
+                    <form onsubmit="alert('모의 시뮬레이션이 접수되었습니다. 입력해주신 조건으로 최저가 견적을 분석하여 빠른 시일 내에 연락드리겠습니다.'); return false;">
+                        <h3 style="margin-top: 0; margin-bottom: 1.5rem; color: var(--secondary-color);">차량 및 계약 조건 세부 설정</h3>
+                        
+                        <div class="simulator-grid">
+                            <div class="input-group">
+                                <label for="car-model">선호 아이오닉 모델 선택</label>
+                                <select id="car-model" required>
+                                    <option value="">차량 선택</option>
+                                    <option value="ioniq5_lr_ex">아이오닉5 롱레인지 익스클루시브 2WD</option>
+                                    <option value="ioniq5_lr_pr">아이오닉5 롱레인지 프레스티지 AWD</option>
+                                    <option value="ioniq5_st">아이오닉5 스탠다드 이라이트 2WD</option>
+                                    <option value="ioniq5_pe">아이오닉5PE 신형 페이스리프트</option>
+                                    <option value="ioniq5_n">아이오닉5N 고성능 AWD</option>
+                                    <option value="ioniq6_lr_ex">아이오닉6 롱레인지 익스클루시브 2WD</option>
+                                    <option value="ioniq6_lr_pr">아이오닉6 롱레인지 프레스티지 AWD</option>
+                                    <option value="ioniq6_st">아이오닉6 스탠다드 이라이트</option>
+                                    <option value="ioniq6_pe">아이오닉6PE 최신형 버전</option>
+                                    <option value="ioniq9_ex_2wd">아이오닉9 익스클루시브 2WD (SK On 배터리)</option>
+                                    <option value="ioniq9_pr_awd">아이오닉9 프레스티지 AWD 대형</option>
+                                    <option value="ioniq9_cal_awd">아이오닉9 캘리그래피 성능형 AWD</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="lease-term">계약 이용 기간 선택</label>
+                                <select id="lease-term" required>
+                                    <option value="36">36개월 (단기 최적형)</option>
+                                    <option value="48" selected>48개월 (안정적인 표준형)</option>
+                                    <option value="60">60개월 (납입금 부담 최소화)</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deposit-type">초기 자금 납입 방식</label>
+                                <select id="deposit-type" required>
+                                    <option value="deposit">보증금 (만기 시 전액 환급형)</option>
+                                    <option value="prepay">선납금 (월 납입금 선반영형)</option>
+                                    <option value="none">무보증 조건 (초기 비용 0원)</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deposit-rate">초기 비용 비율 설정</label>
+                                <select id="deposit-rate" required>
+                                    <option value="0">0% (초기 비용 무부담)</option>
+                                    <option value="10">10%</option>
+                                    <option value="20">20%</option>
+                                    <option value="30" selected>30% (권장 비율)</option>
+                                    <option value="40">40%</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="annual-mileage">연간 설정 주행거리</label>
+                                <select id="annual-mileage" required>
+                                    <option value="10000">연 10,000km 이하 (출퇴근 전용)</option>
+                                    <option value="20000" selected>연 20,000km (가장 일반적)</option>
+                                    <option value="30000">연 30,000km (장거리 주행형)</option>
+                                    <option value="unlimited">무제한 주행거리</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="customer-type">이용 고객 구분</label>
+                                <select id="customer-type" required>
+                                    <option value="individual">개인 소비자</option>
+                                    <option value="private-business">개인 사업자 (비용 처리 필요)</option>
+                                    <option value="corporate">법인 사업자 (임직원 전용 보험 적용)</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="transition-subsidy">내연차 전환지원금 신청 여부</label>
+                                <select id="transition-subsidy" required>
+                                    <option value="yes">예 (3년 이상 노후 가솔린/디젤 차량 처분)</option>
+                                    <option value="no">아니오 (신규 유입 고객)</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="customer-name">상담을 위한 성함</label>
+                                <input type="text" id="customer-name" placeholder="홍길동" required>
+                            </div>
+
+                            <div class="input-group" style="grid-column: span 1;">
+                                <label for="customer-phone">연락처 번호</label>
+                                <input type="tel" id="customer-phone" placeholder="010-1234-5678" required>
+                            </div>
+                        </div>
+
+                        <div class="info-callout" style="margin-top: 0; margin-bottom: 1.5rem;">
+                            <p>선납금은 매월 납입할 이용료를 일부 미리 지불하는 방식이므로 겉보기 월 납입금이 크게 저렴해지는 이점이 있습니다. 반면, 보증금은 금융회사에 예치해두는 안심 예치금의 성격으로 월세 납입 감소 효과는 적지만 만기 도래 시 전액 환급되고 이자 효율 면에서 유리합니다. 이러한 상이한 장단점을 개개인의 세무 재정 형태에 맞추어 전문적으로 컨설팅해 드립니다.</p>
+                        </div>
+
+                        <button type="submit" class="cta-btn">아이오닉 2026년 최저가 예상 견적서 받아보기</button>
+                    </form>
+                </div>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <section id="analysis">
+                <h2>아이오닉 모델별 2026년 실구매 비용 및 월 리스료 상세 분석</h2>
+                <p>소비자들이 가장 관심을 갖는 항목은 과연 매월 지출되는 금액이 평균 얼마 정도 되는가입니다. 리스 비용은 단순히 출고 차량의 가격만으로 결정되는 것이 아니며, 보조금 환수 비율, 제휴 파이낸셜사의 특판 할인, 잔존가치의 비율 등 다각적인 요소가 혼합되어 책정됩니다. 아래 표는 48개월 기간, 연 주행거리 2만 킬로미터, 초기 선납금 30퍼센트 기준의 실제 가상 월 리스 금액 산정표입니다. 지역별 지자체 환경부 지원금과 2026년 신규 친환경 혜택 기준이 종합적으로 적용되었습니다.</p>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>세부 모델 등급</th>
+                                <th>평균 차량 출고가</th>
+                                <th>2026 예상 보조금 혜택</th>
+                                <th>평균 월 리스 부담액</th>
+                                <th>핵심 장치 및 구성요소</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>아이오닉5 롱레인지 익스클루시브 2WD</td>
+                                <td>54,150,000 원</td>
+                                <td>약 4,800,000 원</td>
+                                <td>월 390,000 원 선</td>
+                                <td>E-GMP 탑재, 충전 편의성 극대화</td>
+                            </tr>
+                            <tr>
+                                <td>아이오닉5 롱레인지 프레스티지 AWD</td>
+                                <td>58,850,000 원</td>
+                                <td>약 4,400,000 원</td>
+                                <td>월 440,000 원 선</td>
+                                <td>HTrac 사륜구동 주행 안정성 탁월</td>
+                            </tr>
+                            <tr>
+                                <td>아이오닉5PE 페이스리프트 기본형</td>
+                                <td>52,400,000 원</td>
+                                <td>약 5,000,000 원</td>
+                                <td>월 370,000 원 선</td>
+                                <td>디지털 사이드미러, 승차감 개선판</td>
+                            </tr>
+                            <tr>
+                                <td>아이오닉6 롱레인지 익스클루시브 2WD</td>
+                                <td>55,600,000 원</td>
+                                <td>약 5,100,000 원</td>
+                                <td>월 380,000 원 선</td>
+                                <td>세계 최상위권 전비 계수, 유선형 디자인</td>
+                            </tr>
+                            <tr>
+                                <td>아이오닉6 롱레인지 프레스티지 AWD</td>
+                                <td>61,300,000 원</td>
+                                <td>약 4,600,000 원</td>
+                                <td>월 460,000 원 선</td>
+                                <td>와이드 선루프 및 헤드업 디스플레이 장착</td>
+                            </tr>
+                            <tr>
+                                <td>아이오닉9 익스클루시브 2WD (7인승)</td>
+                                <td>67,150,000 원</td>
+                                <td>약 3,500,000 원</td>
+                                <td>월 560,000 원 선</td>
+                                <td>110.3kWh SK On 배터리 장착 패밀리 SUV</td>
+                            </tr>
+                            <tr>
+                                <td>아이오닉9 캘리그래피 AWD (6인승)</td>
+                                <td>83,110,000 원</td>
+                                <td>약 2,700,000 원</td>
+                                <td>월 730,000 원 선</td>
+                                <td>플래그십 회전 스위블 시트, 마사지 체어 내장</td>
+                            </tr>
+                            <tr>
+                                <td>아이오닉5N 최고성능 퍼포먼스 리스</td>
+                                <td>77,000,000 원</td>
+                                <td>약 2,100,000 원</td>
+                                <td>월 810,000 원 선</td>
+                                <td>가상 변속 기어 시스템 및 서킷 주행 특화</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>표를 통해 알 수 있듯이, 모델과 구동 체계에 따라 할인 한도와 책정 비용의 낙차가 큽니다. 특히 2026년에 인기가 절정에 달한 <strong>아이오닉9</strong> 시리즈는 고급 대형 체급에 속해 차량 가격 자체가 높은 편이지만, 대형 전동화 SUV의 독보적인 감가율 방어 덕분에 잔존가치가 월등히 높게 세팅되어 있습니다. 따라서 비싼 가격에도 불구하고 월 납입금 인상 폭은 상대적으로 좁게 조율되는 매력적인 특성을 보이고 있습니다.</p>
+                
+                <p>일반적으로 보급형으로 오랜 기간 실용성이 입증된 <strong>아이오닉5 스탠다드</strong>나 과거 도심형 택시 및 업무용으로 크게 활약했던 단종된 <strong>아이오닉 일렉트릭</strong>, 하이브리드 시스템 원조 격인 <strong>아이오닉 하이브리드</strong>의 흐름을 분석해보면 연식에 다른 중고 전기차의 가치 변동이 리스 설계 시 매우 중요함을 확인하게 됩니다. 전기차 기술 주기가 대략 2년에서 3년 단위로 도래하기 때문에, 신형 페이스리프트 버전인 아이오닉5PE나 신제품 위주로 최적의 설계 가이드를 받는 것이 장기적인 감가 리스크 탈피에 큰 도움이 됩니다.</p>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <section id="comparison">
+                <h2>아이오닉 이용 방식별 종합 유지비교 및 금융 장단점</h2>
+                <p>고객들께서 아이오닉 리스를 검토할 때 가장 많이 갈등하는 지점이 바로 일반 신차 장기렌트와 본인 명의 할부 금융과의 차이점 분석입니다. 이를 명확히 밝히기 위해 5년 동안 차량을 전적으로 운행할 경우 예상되는 부대세금, 취등록세, 자동차 보조금, 매년 의무적으로 가입하는 보험료 등을 통합한 비용 지출 분석 데이터를 시각화 구조로 정리했습니다.</p>
+                
+                <div class="chart-container">
+                    <div class="chart-title">5년 총 유지 예측 비용 비교 시각화 (단위: 만 원 / 차량가 5,500만 원 모델 기준)</div>
+                    <div class="chart-bar-group">
+                        <div class="chart-row">
+                            <div class="chart-label">일반 신차 다이렉트 할부 구매</div>
+                            <div class="chart-bar-wrapper">
+                                <div class="chart-bar" style="width: 95%;"></div>
+                            </div>
+                            <div class="chart-value">약 7,200 만원</div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-label">아이오닉 장기렌트 (호, 하, 허 번호판)</div>
+                            <div class="chart-bar-wrapper">
+                                <div class="chart-bar" style="width: 82%;"></div>
+                            </div>
+                            <div class="chart-value">약 6,100 만원</div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-label">아이오닉 일반 오토 리스 (일반 번호판)</div>
+                            <div class="chart-bar-wrapper">
+                                <div class="chart-bar" style="width: 73%;"></div>
+                            </div>
+                            <div class="chart-value">약 5,600 만원</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>상세 운용 장단점 요약 분석</h3>
+                <p>각 이용 플랫폼에 숨겨진 차이점과 본질적인 가치를 아래와 같이 정리해 드립니다.</p>
+                
+                <h4 style="color: var(--secondary-color); margin-top: 1.5rem;">1. 아이오닉 일반 오토 리스의 특징</h4>
+                <p><strong>장점:</strong> 가장 큰 특 장점은 렌터카 전용 번호판(하, 허, 호) 대신 품격 있는 일반 자가용 플레이트를 그대로 장착하여 시각적 만족도가 극대화된다는 점입니다. 또한 운전자의 소중한 무사고 경력이 자동차 보험 이력에 100퍼센트 계속 적립되고 유지되므로, 베테랑 무사고 운전자라면 기존의 높은 할인 등급을 그대로 수혜 받아 월 비용 부담을 눈에 띄게 절약할 수 있습니다. 법인 및 개인사업자 고객은 매월 납입하는 금액을 정식 손비 처리하여 연간 대폭적인 종합소득세 및 법인세 환급 혜택을 받습니다.</p>
+                <p><strong>단점:</strong> 개인의 신용대출 한도 내에서 일시적인 금융 부채로 일부 산정되어 반영될 수 있으므로 주택 금융이나 추가적인 가계 자금 확보가 필요한 상태에서는 사전 한도 조절이 선행되어야 합니다.</p>
+
+                <h4 style="color: var(--secondary-color); margin-top: 1.5rem;">2. 아이오닉 장기렌트의 특징</h4>
+                <p><strong>장점:</strong> 금융상품이 아닌 단순 임대차 서비스로 잡히므로 부채로 인식되지 않아 자산 상태가 깔끔하게 유지됩니다. 또한 임대 차량의 특성상 중대 사고가 여러 차례 발생하더라도 개인 면책금 외에 추가적인 할증 페널티가 일절 부과되지 않아 전기차 사고가 잦을까 우려되는 초보자나 연령대가 만 21세 및 26세 이하로 무척 어려 종합 보험 산정이 매우 높게 나오는 청년층 운전자에게 안성맞춤입니다.</p>
+                <p><strong>단점:</strong> 앞서 기술한 대로 전용 렌터카 고유 번호판을 달아야 하는 외관상의 장벽이 존재하며, 리스 계약과 달리 운전 경력이 한동안 단절되어 추후 본인 보험으로 다시 가입 시 경력 산정에 공백이 생긴다는 차이점이 존재합니다.</p>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <section id="community">
+                <h2>검색 엔진 트렌드 및 지능형 AI가 설계하는 최적의 리스 전략</h2>
+                <p>스마트한 소비층이 주로 정보를 얻는 경로를 추적해 보면 포털 서비스인 네이버 지식인 및 블로그, 카페 영역이나 글로벌 표준 구글 검색 플랫폼을 다양하게 활용하고 있습니다. 특히 친근하고 생동감 있는 실사용자의 조언을 듣기 위해 디시인사이드 장기렌터카 갤러리나 전기차 동호회 등지에서 내돈내산 출고 꿀팁, 특판 저렴한곳 순위 등의 생생한 오너 평가를 비교 검색하기도 합니다. 더불어 유튜브, 트위터, 인스타그램, 페이스북 같은 각종 대표 소셜 미디어 플랫폼에서는 출고 대행 에이전시의 특가 사은품 리스트, 블랙박스 및 틴팅 패키지 혜택, 실질적인 지원금 혹은 현금지원 지급 등의 이벤트 소식이 끊임없이 노출되어 흥미를 끕니다.</p>
+                
+                <p>그러나 수많은 불법 과장 광고와 스팸성 메시지들 사이에서 가장 투명하고 정직한 견적의 실체를 파악하는 것은 결코 쉬운 과제가 아닙니다. 이러한 혼란을 해결하기 위해 최근에는 똑똑한 예비 구매자들이 구글의 <strong>제미나이(Gemini)</strong>나 오픈AI의 <strong>챗지피티(ChatGPT)</strong>와 같은 고도화된 인공지능 AI 금융 자문 비서를 활용하기 시작했습니다. 챗지피티와 제미나이는 최신 수천 페이지 분량의 전국 캐피탈 이자율 및 여신금융 조건을 실시간으로 탐색하여 개인의 최적 금융 포트폴리오를 제공합니다.</p>
+                
+                <p>예를 들어, AI 가이드 엔진인 ChatGPT와 Gemini에 아이오닉9 캘리그래피 AWD 트림에 대한 2026년 잔존가치 변화 양상과 내연차 전환지원금 적용 방식을 문의하면 다음과 같은 논리적인 결론이 도출됩니다. 감가 폭이 큰 대형 고급 전기 스포츠유틸리티 차량의 특성상 차량 반납 시 중고 리스크를 금융업체가 온전히 끌어안는 반납형 장기 리스 및 렌탈이 개인의 자산 피해 위험을 완벽에 가깝게 헷지하는 최선의 경로라는 분석을 명료하게 짚어줍니다. 아울러 일시불로 전액 현금을 납부하여 묶어두는 기회비용보다 차라리 자금을 저축성 고금리 예금이나 배당 상품에 위탁하고 연 3%대 안팎의 특판 대출 우대를 적용하는 다이렉트 전문 싼곳 에이전시를 비교하는 쪽을 지혜로운 자산 보존 선택지로 추천합니다.</p>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <section id="faq">
+                <h2>아이오닉 리스 관련 다빈도 질문 및 정밀 가이드 FAQ</h2>
+                <p>고객 여러분들이 상담 접수 전에 가장 궁금해하시는 핵심 의문사항만을 모아 성실하게 일문일답으로 답변해 드립니다.</p>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">아이오닉 월 평균 리스 비용은 보통 얼마 선에서 결정되나요?</div>
+                        <div class="faq-answer">
+                            가장 대중적인 모델인 아이오닉5 롱레인지 익스클루시브 트림을 기준으로, 계약 만기 주행 연 2만 킬로미터와 선납금 30퍼센트 기준을 적용할 때 월 평균 비용은 30만 원대 중후반에서 40만 원대 초반 사이로 촘촘히 형성됩니다. 단, 초기 납부 비율이 0퍼센트인 완전 무보증 조건으로 계약하게 되면 월 이용료가 50만 원대 중후반으로 다소 높게 조정될 수 있으므로, 각 개인의 소득 여력에 알맞게 균형감을 잡아 선택해야 합니다.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">2026년 친환경 전기차 보조금 제도는 리스에 어떻게 반영되나요?</div>
+                        <div class="faq-answer">
+                            리스 이용 시에도 정부 및 자치단체 보조금은 전액 리스 요금 할인 형태로 녹아들어 반영됩니다. 리스 전문 금융사가 차주 자격으로 관공서에 보조금을 일괄 접수하고 신청하여 잔여 실구매 가격에서 매월 이용료를 상계 처리하는 방식입니다. 또한 내연차 전환지원금 신설 혜택 조건(최대 100만 원)에 충족되는 차량 폐차 증빙을 갖추면 그 혜택 또한 월별 실납부 금액 인하에 전적으로 반영됩니다.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">리스 도중 주행 중 사고가 크게 나면 비용 부담이나 위약금 손해는 없나요?</div>
+                        <div class="faq-answer">
+                            리스 계약 기간 도중의 일반적인 교통사고는 리스 가입자가 독립적으로 가입한 개인 종합 자동차보험 자차 조항으로 해결할 수 있습니다. 경미한 접촉사고나 심지어 대형 사고로 인한 가치 감가 리스크가 발생하더라도, 만기 시점에 차량을 인수하지 않고 전량 반납하는 방식을 선택하면 가치 하락분을 고객이 보상해야 할 책임이 원칙적으로 없으므로 중고가 변동 리스크 탈출 면에서 매우 안심할 수 있는 시스템입니다.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">시중에서 가장 저렴한곳 또는 이율이 싼곳 에이전시를 비교 판별하는 팁이 있나요?</div>
+                        <div class="faq-answer">
+                            반드시 특정 캐피탈 한 곳에만 종속된 설계사 대신 전국 20여 개 이상의 모든 자금사(카드, 캐피탈, 특판 금융사)를 고루 연계하여 비교견적을 한눈에 산출하는 중립적인 종합 우량 에이전트 전문 브랜드를 검토해야 합니다. 간혹 과도한 현금지원이나 가입 사은품을 내세우며 뒤로 고금리 인수 수수료를 설계하는 악덕 싼곳 광고에 속지 않으려면, 실 납입금 종합 산출표와 보장 가이드의 투명성을 끝까지 비교 검증하는 정밀함이 요구됩니다.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">중도에 만기를 지키지 못하고 계약 해지 시 위약금 패널티율은 어떻게 되나요?</div>
+                        <div class="faq-answer">
+                            모든 리스 및 렌탈 계약은 도중에 임의 해지 시 상당한 비율의 잔여 납입금 위약금이 정산되어 부과됩니다. 부득이하게 더는 운행할 수 없게 된다면 무턱대고 해지 정산을 감행하기보다는, 리스를 필요로 하는 제3의 개인이나 사업자 회원에게 차량 승계 제도를 활용하여 바통을 터치하고 정식 승계 처리를 완료하는 것이 잔존 손실을 효과적으로 줄일 수 있는 핵심 노하우입니다.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <section id="sources">
+                <h2>신뢰할 수 있는 아이오닉 시리즈 및 제도 공신력 출처 정보</h2>
+                <p>본 플랫폼의 모든 보조금 요율과 세법상 비용인정 기준은 국가 행정기관과 유력 자동차 전문 데이터 허브의 최신 공식 데이터를 근거로 기안되었습니다. 검증되지 않은 왜곡된 상업 정보에 흔들리지 마시고, 아래 신뢰할 수 있는 기관 웹사이트를 통해 공인 정보를 직접 교차 검증해 보세요.</p>
+                
+                <div class="external-links-box" aria-label="추천하는 외부 공인 정보 사이트">
+                    <a href="https://namu.wiki/w/%ED%98%84%EB%8C%80%20%EC%95%84%EC%9D%B4%EC%98%A4%EB%8B%89%20%EC%8B%9C%EB%A6%AC%EC%A6%88" target="_blank" rel="noopener noreferrer">나무위키 - 현대 아이오닉 시리즈 공식 변천사 및 제품 디테일</a>
+                    <a href="https://www.hyundai.com" target="_blank" rel="noopener noreferrer">현대자동차 공식 홈페이지 - 정식 트림별 가격표 및 카탈로그 다운로드</a>
+                    <a href="https://www.ev.or.kr" target="_blank" rel="noopener noreferrer">무공해차 통합누리집 - 환경부 전기차 구매 보조금 및 지자체별 실시간 예산 잔여 확인</a>
+                    <a href="https://www.law.go.kr" target="_blank" rel="noopener noreferrer">국가법령정보센터 - 여신전문금융업법 및 조세특례제한법 운용 기준 법률 정보</a>
+                    <a href="https://www.carisyou.com" target="_blank" rel="noopener noreferrer">카이즈유 자동차데이터 연구소 - 국내 모델별 실질 등록 대수 및 리스 통계 분석</a>
+                    <a href="https://www.consumer.go.kr" target="_blank" rel="noopener noreferrer">한국소비자원 - 오토 리스 및 장기렌트 이용 시 소비자 분쟁 해결 및 구제 기준 정보</a>
+                </div>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <section id="contact" style="text-align: center; margin-bottom: 0;">
+                <h2>전문 에이전트와 함께하는 최저금리 맞춤 솔루션</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">과장된 광고 혜택에 흔들리지 마십시오. 정직함과 정밀한 분석을 약속하는 금융 파트너가 고객님의 신용 한도와 자금 성향에 100퍼센트 매칭되는 완벽한 리스 플랜을 무료로 지원합니다.</p>
+                <p style="font-size: 1.8rem; font-weight: 700; color: var(--secondary-color); margin-bottom: 2rem;">안심 견적 안내 전용 상담 센터: 1544-0000</p>
+                <a href="tel:15440000" class="cta-btn" style="text-decoration: none; display: inline-block;">아이오닉 2026 다이렉트 최저가 상담 시작하기</a>
+            </section>
+
+        </div>
     </main>
-  </body>
-</html>
+
+    <script>
+      // FAQ 아코디언 토글 스크립트
+      document.querySelectorAll('.faq-question').forEach((item) => {
+        item.addEventListener('click', () => {
+          const parent = item.parentElement;
+          
+          // 이미 활성화된 다른 탭 닫기
+          document.querySelectorAll('.faq-item').forEach((otherItem) => {
+            if (otherItem !== parent && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // 현재 탭 토글
+          parent.classList.toggle('active');
+        });
+      });
+    </script>
+  
